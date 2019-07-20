@@ -85,7 +85,7 @@ export function sumArrayWithThreeNumbers(sumArr) {
     accumulator = sum(sumArr[0], accumulator)[0];
     accumulator = sum(sumArr[1], accumulator)[0];
     accumulator = sum(sumArr[2], accumulator)[0];
-    const final = [accumulator, `The numbers ${sumArr[0]},${sumArr[1]},${sumArr[2]} have a sum of ${accumulator}.`]
+    const final = [accumulator, `The numbers ${sumArr[0]},${sumArr[1]},${sumArr[2]} have a sum of ${accumulator}.`];
     return final;
 }
 
@@ -135,7 +135,12 @@ This function should be dynamic, accepting an array of any length.
 */
 
 export function multiplyAnyArray(dynamicArray) { //eslint-disable-line
-
+    let accumulator = 1;
+    for(let i = 0; i < dynamicArray.length; i++) {
+        accumulator = multiply(dynamicArray[i], accumulator)[0];
+    }
+    const total = [accumulator, `The numbers ${dynamicArray[0]},${dynamicArray[1]},${dynamicArray[2]},${dynamicArray[3]},${dynamicArray[4]} have a product of ${accumulator}.`];
+    return total;
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
