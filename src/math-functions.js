@@ -15,7 +15,7 @@ export function sum(a, b) {
     const num = a + b;
     const total = [num, 'The sum of ' + a + ' and ' + b + ' is ' + num + '.'];
     return total;
-};
+}
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 // Don't forget to create a new branch for your work on the next question!
@@ -29,7 +29,7 @@ Write a function called multiply() that takes in two numbers as arguments and re
 
 export function multiply(a, b) {
     const total = a * b;
-    const result = [total, 'The product of ' + a + ' and ' + b + ' is ' + total + '.']
+    const result = [total, 'The product of ' + a + ' and ' + b + ' is ' + total + '.'];
     return result;
 }
 
@@ -55,9 +55,10 @@ how to do this. However, you may continue to use the + operator for string conca
 */
 
 export function sumAndMultiplyThreeNumbers(a, b, c) { //eslint-disable-line
-    const multiplied = a * b * c;
-    const added = a + b + c;
-    const result = [added, multiplied, `${a} and ${b} and ${c} sum to ${added}.`, `The product of ${a} and ${b} and ${c} is ${multiplied}.`]
+    const multiplied = multiply(a, multiply(b, c)[0])[0];
+    const added = sum(a, b)[0];
+    const added2 = sum(added, c)[0];
+    const result = [added2, multiplied, `${a} and ${b} and ${c} sum to ${added2}.`, `The product of ${a} and ${b} and ${c} is ${multiplied}.`];
     return result;
 }
 
@@ -71,7 +72,7 @@ as its single argument and then returns an array where the first element is the 
 of the numbers in the array, and the second element is a string that EXACTLY follows 
 this example and uses the values that were input into the function:
 
-"2,3,4 was passed in as an array of numbers, and 9 is their sum."
+"The numbers 2,3,4 have a sum of 9."
 
 IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. 
 To do addition, use your sum() function that you've already created. You're going to 
@@ -80,7 +81,12 @@ to use the + operator for string concatenation.
 */
 
 export function sumArrayWithThreeNumbers(sumArr) {
-
+    let accumulator = 0;
+    accumulator = sum(sumArr[0], accumulator)[0];
+    accumulator = sum(sumArr[1], accumulator)[0];
+    accumulator = sum(sumArr[2], accumulator)[0];
+    const final = [accumulator, `The numbers ${sumArr[0]},${sumArr[1]},${sumArr[2]} have a sum of ${accumulator}.`]
+    return final;
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
