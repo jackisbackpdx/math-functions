@@ -73,10 +73,14 @@ this example and uses the values that were input into the function:
 IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. 
 To do addition, use your sum() function that you've already created. You're going to 
 have to be resourceful to figure out how to do this. However, you may continue 
-to use the + operator for string concatenation.
+to use the + operator for string concatenation.``````````````````````````````````````````````````````````````````````````````````````
 */
 
 export function sumArrayWithThreeNumbers(sumArr) {
+    let arr = [];
+    arr[0] = sum(sum(sumArr[0], sumArr[1])[0], sumArr[2])[0];
+    arr[1] = `The numbers ${sumArr[0]},${sumArr[1]},${sumArr[2]} have a sum of ${arr[0]}.`;
+    return arr;
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
