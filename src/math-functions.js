@@ -10,7 +10,10 @@ example and uses the values that were input into the function:
 */
 
 export function sum(a, b) {
-
+    let arr = [];
+    arr[0] = a + b;
+    arr[1] = `The sum of ${a} and ${b} is ${arr[0]}.`;
+    return arr;
 }
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
